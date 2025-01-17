@@ -111,9 +111,40 @@ unsigned int tabspaces = 8;
 float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
+/* #include "/home/adi/.cache/wal/colors-wal-st.h" */
 
-#include "/home/adi/.cache/wal/colors-wal-st.h"
+const char *colorname[] = {
 
+  /* 8 normal colors */
+  [0] = "#161f21", /* black   */
+  [1] = "#738894", /* red     */
+  [2] = "#888E97", /* green   */
+  [3] = "#98A3A3", /* yellow  */
+  [4] = "#B0ADA8", /* blue    */
+  [5] = "#EEB79D", /* magenta */
+  [6] = "#D0B2A5", /* cyan    */
+  [7] = "#e6d0c7", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#a1918b",  /* black   */
+  [9]  = "#738894",  /* red     */
+  [10] = "#888E97", /* green   */
+  [11] = "#98A3A3", /* yellow  */
+  [12] = "#B0ADA8", /* blue    */
+  [13] = "#EEB79D", /* magenta */
+  [14] = "#D0B2A5", /* cyan    */
+  [15] = "#e6d0c7", /* white   */
+
+  /* special colors */
+  [256] = "#000000", /* background */
+  [257] = "#e6d0c7", /* foreground */
+  [258] = "#e6d0c7",     /* cursor */
+};
+
+unsigned int defaultbg = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultcs = 258;
+unsigned int defaultrcs= 258;
 
 /*
  * Default colors (colorname index)
@@ -160,6 +191,42 @@ static unsigned int defaultattr = 11;
  * modifier, set to 0 to not use it.
  */
 static uint forcemousemod = ShiftMask;
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		/* { "font",         STRING,  &font }, */
+		{ "color0",       STRING,  &colorname[0] },
+		{ "color1",       STRING,  &colorname[1] },
+		{ "color2",       STRING,  &colorname[2] },
+		{ "color3",       STRING,  &colorname[3] },
+		{ "color4",       STRING,  &colorname[4] },
+		{ "color5",       STRING,  &colorname[5] },
+		{ "color6",       STRING,  &colorname[6] },
+		{ "color7",       STRING,  &colorname[7] },
+		{ "color8",       STRING,  &colorname[8] },
+		{ "color9",       STRING,  &colorname[9] },
+		{ "color10",      STRING,  &colorname[10] },
+		{ "color11",      STRING,  &colorname[11] },
+		{ "color12",      STRING,  &colorname[12] },
+		{ "color13",      STRING,  &colorname[13] },
+		{ "color14",      STRING,  &colorname[14] },
+		{ "color15",      STRING,  &colorname[15] },
+		/* { "background",   STRING,  &colorname[256] }, */
+		{ "foreground",   STRING,  &colorname[257] },
+		{ "cursorColor",  STRING,  &colorname[258] },
+		/* { "termname",     STRING,  &termname }, */
+		/* { "shell",        STRING,  &shell }, */
+		/* { "minlatency",   INTEGER, &minlatency }, */
+		/* { "maxlatency",   INTEGER, &maxlatency }, */
+		/* { "blinktimeout", INTEGER, &blinktimeout }, */
+		/* { "bellvolume",   INTEGER, &bellvolume }, */
+		/* { "tabspaces",    INTEGER, &tabspaces }, */
+		/* { "borderpx",     INTEGER, &borderpx }, */
+		/* { "cwscale",      FLOAT,   &cwscale }, */
+		/* { "chscale",      FLOAT,   &chscale }, */
+};
 
 /*
  * Internal mouse shortcuts.
