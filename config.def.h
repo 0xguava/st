@@ -111,7 +111,6 @@ unsigned int tabspaces = 8;
 float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
-/* #include "/home/adi/.cache/wal/colors-wal-st.h" */
 
 const char *colorname[] = {
 
