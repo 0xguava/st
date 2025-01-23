@@ -1,8 +1,8 @@
 st - simple terminal
 --------------------
-st is a simple terminal emulator for X which sucks less.
-
 ![st logo](st.svg)
+
+st is a simple terminal emulator for X which sucks less.
 
 
 Requirements
